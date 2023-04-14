@@ -1,0 +1,32 @@
+<form method="POST" action="/produto/atualizar">
+  <input type="hidden" name="id" value="{{id}}" />
+
+  <label for="nome">Nome</label>
+  <input type="text" class="form-control" name="name" value="{{name}}" autofocus required />
+
+  <label for="price">Preço</label>
+  <input type="text" class="form-control" name="price" value="{{price}}" autofocus required />
+
+  <br />
+  <div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="/produto" class="btn btn-danger">Cancelar</a>
+  </div>
+</form>
+<hr />
+
+<div class="container">
+  <h5>Tipos cadastrados</h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Imposto</th>
+        <th>Vinculado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{typeLines}}
+    </tbody>
+  </table>
+</div>

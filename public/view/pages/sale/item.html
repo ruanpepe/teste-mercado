@@ -1,0 +1,11 @@
+<tr>
+    <td>{{id}}</td>
+    <td>{{created_at}}</td>
+    <td>{{products_prices}}</td>
+    <td>{{products_taxes}}</td>
+    <td>{{final_price}}</td>
+    <td>
+        <a href="/venda/ver/{{id}}" class="btn btn-primary btn-sm">Ver</a>
+        <a href="/venda/deletar/{{id}}" onclick="return confirm('Tem certeza?')" class="btn btn-danger btn-sm">Deletar</a>
+    </td>
+</tr>

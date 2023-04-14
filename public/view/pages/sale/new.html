@@ -1,0 +1,57 @@
+<form method="POST" action="/venda/nova">
+<div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <a href="/venda" class="btn btn-danger">Cancelar</a>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Imposto (%)</th>
+      <th>Quantidade</th>
+      <th>Total</th>
+      <th>Total + impostos</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{productLines}}
+  </tbody>
+</table>
+<h5>TOTAL SEM IMPOSTOS: <label id="total"></label></h5>
+<h5>TOTAL COM IMPOSTOS: <label id="totalWithTaxes"></label></h5>
+<div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <a href="/venda" class="btn btn-danger">Cancelar</a>
+</div>
+</form>
+
+<script>
+  total=[];
+  totalWithTax=[];
+  function updateTotal(productId){
+      elementProductTotal = document.getElementById('total'+productId);
+      elementProductTotalWithTaxes = document.getElementById('totalWithTaxes'+productId);
+      elementSaleTotal = document.getElementById('total');
+      elementSaleTotalWithTaxes = document.getElementById('totalWithTaxes');
+      
+      productPrice = Number(document.getElementById('price'+productId).value);
+      productTax = Number(document.getElementById('tax'+productId).value);
+      productAmount = Number(document.getElementById('amount'+productId).value);
+      
+      total[productId] = (productPrice*productAmount);
+      totalWithTax[productId] = total[productId] + (productTax/100*total[productId]);
+      elementProductTotal.value = total[productId];
+      elementProductTotalWithTaxes.value = totalWithTax[productId];
+
+      saleTotal = total.reduce(function(saleTotal, total){
+        return saleTotal + total;
+      }, 0);
+      elementSaleTotal.innerHTML = saleTotal;
+
+      saleTotalWithTax = totalWithTax.reduce(function(saleTotalWithTax, totalWithTax){
+        return saleTotalWithTax + totalWithTax;
+      }, 0);
+      elementSaleTotalWithTaxes.innerHTML = saleTotalWithTax;
+  }
+</script>

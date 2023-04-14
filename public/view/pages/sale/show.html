@@ -1,0 +1,40 @@
+<div class="container">
+  <table class="table">
+    <tr>
+      <td>Id</td>
+      <td>{{id}}</td>
+    </tr>
+    <tr>
+      <td>Horátio</td>
+      <td>{{created_at}}</td>
+    </tr>
+    <tr>
+      <td>Preço dos produtos</td>
+      <td>{{products_prices}}</td>
+    </tr>
+    <tr>
+      <td>Impostos dos produtos</td>
+      <td>{{products_taxes}}</td>
+    </tr>
+    <tr>
+      <td>Preço final</td>
+      <td>{{final_price}}</td>
+    </tr>
+  </table>
+
+  <h5>Produtos da venda</h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Impostos</th>
+        <th>Preço final</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{productLines}}
+    </tbody>
+  </table>
+</div>
